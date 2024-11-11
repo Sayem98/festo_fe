@@ -1,10 +1,11 @@
 import * as React from "react";
-import { Connector, useConnect } from "wagmi";
+import { useConnect } from "wagmi";
+import type { Connector } from "wagmi";
 
 export function WalletOptions() {
   const { connectors, connect } = useConnect();
 
-  return connectors.map((connector) => (
+  return connectors.map((connector: Connector) => (
     <WalletOption
       key={connector.uid}
       connector={connector}

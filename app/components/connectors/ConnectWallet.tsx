@@ -1,4 +1,5 @@
 import { useAccount } from "wagmi";
+
 import { Account } from "./account";
 import { WalletOptions } from "./wallet-options";
 
@@ -8,4 +9,8 @@ function ConnectWallet() {
   return <WalletOptions />;
 }
 
-export { ConnectWallet };
+function ConnectWallets() {
+  return <ConnectWallet />;
+}
+
+export { ConnectWallets };

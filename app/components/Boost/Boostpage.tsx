@@ -9,7 +9,7 @@ import axios from "axios";
 import { getUserDataByTgid } from "@/app/lib/api";
 import { setCurrentUser, setTempMount } from "@/redux/reducers/UsersReducer";
 import SolanaConnectModal from "../connectors/SolanaConnectModal";
-import { ConnectWallet } from "../connectors/ConnectWallet";
+import { ConnectWallets } from "../connectors/ConnectWallet";
 import { useSnackbar } from "notistack";
 const Boostpage = () => {
   const user = useSelector((x: any) => x.TaskReducer.user);
@@ -83,7 +83,8 @@ const Boostpage = () => {
         img="/images/bg/coin.png"
       />
       {/* <SolanaConnectModal title={"Solana"} icon={"/images/bg/coin.png"} /> */}
-      <ConnectWallet />
+      <ConnectWallets />
+
       {/* <Summary /> */}
       <div className="flex flex-col gap-3  overflow-y-scroll">
         <div className="flex flex-col items-start mt-5">
