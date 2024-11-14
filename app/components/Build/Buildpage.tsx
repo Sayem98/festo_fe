@@ -1,33 +1,33 @@
-"use client";
-import React, { ReactNode, useState } from "react";
-import TopImg from "../Reusable/TopImg";
-import Summary from "../Reusable/Summary";
-import Landscape from "./Landscape";
+'use client'
+import React, { ReactNode, useState } from 'react'
+import TopImg from '../Reusable/TopImg'
+import Summary from '../Reusable/Summary'
+import Landscape from './Landscape'
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
 interface data {
-  [key: string]: ReactNode;
+  [key: string]: ReactNode
 }
 const Buildpage = () => {
-  const [active, setActive] = useState("land");
+  const [active, setActive] = useState('land')
 
   const tabs = [
     {
-      name: "Landscape",
-      active: "land",
+      name: 'Landscape',
+      active: 'land',
     },
-  ];
+  ]
   const data: data = {
     land: <Landscape />,
-  };
+  }
   return (
-    <div className="bg-black h-screen  w-full px-[3%]  select-none">
-      <div className=" ">
+    <div className='bg-black h-screen  w-full px-[3%]  select-none'>
+      <div className=' '>
         <TopImg
-          style="bg-[url(/images/store.jpg)] h-[125px] w-full rounded-[10px] bg-cover items-center justify-center bg-no-repeat flex"
-          img="/images/bg/coin.png"
-          amount="324,293"
+          style='bg-[url(/images/store.jpg)] h-[125px] w-full rounded-[10px] bg-cover items-center justify-center bg-no-repeat flex'
+          img='/images/bg/coin.png'
+          amount='324,293'
         />
 
         <Summary />
@@ -44,13 +44,13 @@ const Buildpage = () => {
                         ))
                     }
                 </div> */}
-        <div className="mt-2 text-white h-[50vh] overflow-y-scroll">
+        <div className='mt-2 text-white h-[50vh] overflow-y-scroll'>
           {data[active]}
-          <div className="h-[150px]"></div>
+          <div className='h-[150px]'></div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Buildpage;
+export default Buildpage

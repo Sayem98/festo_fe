@@ -1,32 +1,27 @@
-"use client"
-import React, { useState, useEffect, useRef } from 'react';
+'use client'
+import React, { useState, useEffect, useRef } from 'react'
 
-import Taskpage from '@/app/components/Task/Taskpage';
-import { useDispatch, useSelector } from 'react-redux';
-import { setTempMount } from '@/redux/reducers/UsersReducer';
-// const LEVEL_STEP = 5000;
+import TaskPage from '@/app/components/Task/Taskpage'
+import { useDispatch, useSelector } from 'react-redux'
+import { setTempMount } from '@/redux/reducers/UsersReducer'
 
 const Build: React.FC = () => {
-    const userdata = useSelector((x:any) => x.UsersReducer.currentUser);
-    const tempMount = useSelector((x:any) => x.UsersReducer.tempMount);
-    const [mount, setMount] = useState<number>(tempMount);
-    const [energyLevel, setEnergyLevel] = useState<number>(userdata.energy_level);
-    const maxEnergy = 1000 + 500*energyLevel;
-    const dispatch = useDispatch();
-    useEffect(() => {
-        if (mount < maxEnergy) {
-        const intervalId = setInterval(() => {
-            setMount((prevMount) => Math.min(prevMount + 1, maxEnergy)); // Ensure mount doesn't exceed 1000
-            dispatch(setTempMount(mount));
-            console.log("--------mount--------",mount)
-        }, 1500); // Adjust the interval as needed
+  const userData = useSelector((x: any) => x.UsersReducer.currentUser)
+  const tempMount = useSelector((x: any) => x.UsersReducer.tempMount)
+  const [mount, setMount] = useState<number>(tempMount)
+  const [energyLevel, setEnergyLevel] = useState<number>(userData.energy_level)
+  const maxEnergy = 1000 + 500 * energyLevel
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (mount < maxEnergy) {
+      const intervalId = setInterval(() => {
+        setMount((prevMount) => Math.min(prevMount + 1, maxEnergy))
+        dispatch(setTempMount(mount))
+      }, 1500)
 
-        return () => clearInterval(intervalId); // Clean up the interval on unmount
-
-        }
-    }, [mount]);
-    return(
-        <Taskpage/>
-    )
+      return () => clearInterval(intervalId)
+    }
+  }, [mount])
+  return <TaskPage />
 }
-export default Build;
+export default Build

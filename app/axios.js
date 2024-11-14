@@ -1,7 +1,9 @@
-import axios from 'axios';
-// console.log('nextapiurl',process.env["NEXT_PUBLIC_API_URL"])
+import axios from 'axios'
 const instance = axios.create({
-  baseURL: process.env["NEXT_PUBLIC_API_URL"]
-});
+  baseURL: process.env['NEXT_PUBLIC_API_URL'],
+  headers: {
+    'ngrok-skip-browser-warning': 'true',
+  },
+})
 
-export default instance;
+export default instance

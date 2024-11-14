@@ -1,11 +1,9 @@
-"use client"
-import React, { useState, useEffect, useRef } from 'react';
+'use client'
+import React from 'react'
 
-import Ranking from '@/app/components/Ranking/Ranking';
-// const LEVEL_STEP = 5000;
+import Ranking from '@/app/components/Ranking/Ranking'
+
 const Build: React.FC = () => {
-    return(
-        <Ranking/>
-    )
+  return <Ranking />
 }
-export default Build;
+export default Build
